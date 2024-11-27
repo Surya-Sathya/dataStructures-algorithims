@@ -22,6 +22,7 @@ class LinkedList():
         self.head = node_to_delete.next
 
     def insert_at_end(self, data):
+        #When you assign a variable to an object instance, and then you modify an attribute of the variable, the object instance changes asw
         current_node = self.head
         while True:
             if current_node.next is None:
