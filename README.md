@@ -1,2 +1,2 @@
 # dataStructures-algorithims
- Practice alg/data structures for 1008/2004/2014
+Implementation of all Fundamental Algorithims and Datastructures following Steven Skiena's Algorithim Design Manual (Edition 3)
