@@ -41,8 +41,30 @@ class LinkedList():
             if current_node.next == None:
                 print(f"{current_node.data}")
                 return
-            print(f"{current_node.data}-->", end =" ")
+            print(f"{current_node.data} ---> ", end = "")
             current_node = current_node.next
+    
+    def delete(self, x):
+        prev_node = None
+        curr = self.head
+        while curr.next is not None:
+            if curr.data == x and prev_node is None:
+                print("Special Case: Node to be deleted is at Head")
+                self.head = curr.next
+                return
+
+            if curr.data != x:
+                prev_node = curr
+                print(f"Previous node: {prev_node.data}")
+                curr = curr.next
+                print(f"Next Node: {curr.data}")
+
+            else:
+                print(f"Prev Node: {prev_node.data}")
+                prev_node.next = curr.next
+                return
+            
+        print("Node is not present in Linked List, hence nothing was deleted")
             
 
 if __name__ == '__main__':
@@ -50,11 +72,12 @@ if __name__ == '__main__':
     ll.insert_at_beginning(50)
     ll.insert_at_beginning(150)
     ll.insert_at_beginning(250)
-    print("Inserted 3 elements", end = ": ")
+    ll.insert_at_beginning(350)
+    ll.insert_at_beginning(450)
+    ll.insert_at_beginning(850)
     ll.print_linked_list()
-    ll.delete_node_at_beginning()
-    print("Deleted node at end of linked list", end = ": ")
+    ll.delete(350)
     ll.print_linked_list()
-    ll.insert_at_end(500)
-    print("Added node to the end of linked list", end = ": ")
-    ll.print_linked_list()
+    ll.delete(12)
+
+
