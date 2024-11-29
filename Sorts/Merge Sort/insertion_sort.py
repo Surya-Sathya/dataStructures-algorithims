@@ -10,7 +10,7 @@ def insertion_sort(A: list):
                 
     return A
 
-A = [5, 1, 1, 1, 1]
+A = [5, 4, 3, 2, 1]
 res = insertion_sort(A)
 print(res)
 
