@@ -55,9 +55,9 @@ class LinkedList():
 
             if curr.data != x:
                 prev_node = curr
-                print(f"Previous node: {prev_node.data}")
+                #print(f"Previous node: {prev_node.data}")
                 curr = curr.next
-                print(f"Next Node: {curr.data}")
+                #print(f"Next Node: {curr.data}")
 
             else:
                 print(f"Prev Node: {prev_node.data}")
@@ -78,6 +78,7 @@ if __name__ == '__main__':
     ll.print_linked_list()
     ll.delete(350)
     ll.print_linked_list()
-    ll.delete(12)
+    ll.delete(850)
+    ll.print_linked_list()
 
 
