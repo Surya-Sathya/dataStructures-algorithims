@@ -81,4 +81,6 @@ if __name__ == '__main__':
     ll.delete(850)
     ll.print_linked_list()
 
-
+    arr = (1, 5, 4)
+    arr.append(1)
+    print(arr)
