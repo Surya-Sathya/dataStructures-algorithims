@@ -28,4 +28,5 @@ def longest_run(A):
 
 count = 0
 Array = [2, 4, 3, 5, 1, 7, 6, 9, 8]
-print(longest_run(Array))       
+print(longest_run(Array))   
+#Prints the longest run in an Array. A run is defined as a contiguous, increasing sequence. This is not a good implementation btw  

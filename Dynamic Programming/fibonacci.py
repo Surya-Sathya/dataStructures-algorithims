@@ -11,6 +11,7 @@ def fib(n):
     return fib(n-1) + fib(n-2)
 
 def fib_dp(n):
+    #Dynamic programming using memoization for linear time and linear space 
     dp = [None] * (n + 1)
     dp[0] = 0
     dp[1] = 1

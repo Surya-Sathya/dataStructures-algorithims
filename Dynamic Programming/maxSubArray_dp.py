@@ -17,4 +17,6 @@ def maxSubArray(A):
 
 Array = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 print(maxSubArray(Array))
+#This function returns the length of the maximum sum, contiguous subarray in Array
+#This can actually be done in O(1) space, but would take too long to implement right now, a bit too finicky
                
