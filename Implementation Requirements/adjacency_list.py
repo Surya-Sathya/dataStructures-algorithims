@@ -9,21 +9,14 @@ class Graph():
         self.adj_list = [None] * num_vertices
     
     def add_edge(self, src, des):
-        if self.adj_list[src] == None:
-            self.adj_list[src] = Node(des)
-        
-        else:
-            prev_head = self.adj_list[src]
-            self.adj_list[src] = Node(des)
-            self.adj_list[src].next = prev_head
+            node = Node(des)
+            node.next = self.adj_list[src]
+            self.adj_list[src] = node
  
-        if self.adj_list[des] == None:
-            self.adj_list[des] = Node(src)
-        
-        else:
-            prev_head = self.adj_list[des]
-            self.adj_list[des] = Node(src)
-            self.adj_list[des].next = prev_head
+            #undirected graph
+            node = Node(src)
+            node.next = self.adj_list[des]
+            self.adj_list[des] = node
     
     def delete_edge(self, src, des):
         #Too complicated to implement right now...
