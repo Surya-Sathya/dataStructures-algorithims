@@ -1,20 +1,21 @@
 class Node():
-    def __init__(self, node_num) -> None:
+    def __init__(self, node_num, weight) -> None:
         self.node_num = node_num
         self.next = None
+        self.weight = weight
 
 class Graph():
     def __init__(self, num_vertices) -> None:
         self.num_vertices = num_vertices
         self.adj_list = [None] * num_vertices
     
-    def add_edge(self, src, des):
-            node = Node(des)
+    def add_edge(self, src, des, weight):
+            node = Node(des, weight)
             node.next = self.adj_list[src]
             self.adj_list[src] = node
  
             #undirected graph
-            node = Node(src)
+            node = Node(src, weight)
             node.next = self.adj_list[des]
             self.adj_list[des] = node
     
@@ -53,9 +54,9 @@ class Graph():
                 curr = self.adj_list[node]
                 print(f"{node}:", end = "")
                 while curr.next is not None:
-                    print(f"{curr.node_num}-->", end = "")
+                    print(f"{curr.node_num}({curr.weight})-->", end = "")
                     curr = curr.next
-                print(f"{curr.node_num}")
+                print(f"{curr.node_num}({curr.weight})")
             
             else:
                 print(f"{node}:")
@@ -64,10 +65,10 @@ class Graph():
 
 
 graph = Graph(4)
-graph.add_edge(0, 1)
-graph.add_edge(0, 3)
-graph.add_edge(3, 1)
-graph.add_edge(1, 2)
-graph.add_edge(2, 3)
+graph.add_edge(0, 1, 10)
+graph.add_edge(0, 3, 12)
+graph.add_edge(3, 1, 13)
+graph.add_edge(1, 2, 14)
+graph.add_edge(2, 3, 15)
 graph.print_graph()
 print(graph.search(3, 3))

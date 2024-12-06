@@ -15,7 +15,7 @@ def bfs(adj, u):
     explored = [False for x in adj]
     q = [u]
     while len(q) > 0:
-        visiting = q.pop(0)
+        visiting = q.pop(0) #Pop the left-most!
         if explored[visiting] == False:
             explored[visiting] = True
             print(f"{visiting} --> ", end="")

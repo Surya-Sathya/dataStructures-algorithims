@@ -19,6 +19,16 @@ def dfs(adj, u):
             #print(f"dfs(adj, {neighbour})")
             dfs(adj, neighbour)
 
+def dfs_post(adj, u):
+    explored[u] = True
+    
+    for neighbour in adj[u]:
+        if explored[neighbour] is False:
+            #print(f"dfs(adj, {neighbour})")
+            dfs(adj, neighbour)
+    print(f"{u} --> ", end = "") #PUT THE VISIT STATEMENT HERE for post_order traversal
+    #You only visit a vertex AFTER you have visited all of its neighbours
+
 
 def dfs_stack(adj, u):
     stack = [u]
@@ -47,8 +57,8 @@ adj = graph.get_adj()
 
 #I initially plcaed this explored list INSIDE the dfs algorithim, which resets everything to false, hence infinite loop
 explored = [False for x in adj]
-print("DFS with recursion:", end = " ")
-dfs(adj, 0)
+print("DFS with recursion (Post-Order):", end = " ")
+dfs_post(adj, 0)
 
 print("\n")
 
