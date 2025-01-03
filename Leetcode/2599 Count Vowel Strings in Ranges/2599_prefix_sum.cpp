@@ -4,6 +4,7 @@
 #include <cmath>
 #include <utility>
 #include <queue>
+#include <unordered_set>
 using namespace std; 
 
 //DON"T USE STOI/TOSTRING, increase complexity + unordered set
@@ -19,7 +20,7 @@ public:
             char ba = words[i].back();
             p_sum[i] = valid;  
 
-            if(v.contains(fr) && v.contains(ba)) p_sum[i] = ++valid;
+            if(v.count(fr) && v.count(ba)) p_sum[i] = ++valid;
         }
 
         vector<int> res;
