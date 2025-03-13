@@ -19,33 +19,35 @@ def calc_z_score(txt: str) -> list[int]:
                 else: 
                     res[k] = curr_z_score
                     break
-            if curr_z_score > 0: l,r = min(l, k), k+i-1
+            if curr_z_score > 0: l,r = k, k+i-1
             print(f"With z score of: {curr_z_score}\n")
 
 
         elif k <= r: 
             z = res[k-l]
-            print(f"k: {k} <= r: {r}, with associated Z-score value of: {z}")
+            print(f"l: {l} <= k: {k} <= r: {r}, with associated Z-score value of: {z}")
 
             #Size of z-box within z'-box: Proper subset of z-box, hence can't be any bigger
             #By definition, if it was bigger, it would be bigger
-            if z < r-k: res[k] = z
+            if z < r-k+1: 
+                res[k] = z
+                print(f"Case 2a) z < r-k+1 = With z score of: {z}\n")  
 
-            if z > r-k: res[k] = z
+            elif z > r-k+1: 
+                res[k] = z
+                print(f"Case 2b) z > r-k+1 = With z score of: {z}\n")  
 
-            if z == r-k:
-                curr_z_score = 0
-                for i in range(0, len(txt)-k):
-                    if txt[0+i] == txt[k+i]: curr_z_score += 1
+            elif z == r-k+1:
+                curr_z_score = z
+                for i in range(1, len(txt)-r):
+                    if txt[r-l+i] == txt[r+i]: curr_z_score += 1
                     else: 
                         res[k] = curr_z_score
                         break
-                if curr_z_score > 0: l,r = min(l, k), k+i-1
-                print(f"With z score of: {curr_z_score}\n")     
-
-        else: res[k] = "Undetermined case"
+                l,r = k, k+i-1
+                print(f"Case 2c) z == r-k+1 = With z score of: {curr_z_score}\n")     
 
     return res
 
-txt = "aabcaabxaaaz"
+txt = "ABCABCABAB"
 print(calc_z_score(txt))
